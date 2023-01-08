@@ -6,19 +6,17 @@
   padding: 0;
 }
 
-.main {
-  background-color: white; /* Set the background color to white */
-  /* Add additional styles for the main part of the page here */
+.main-container {
+  height: 100vh; /* Set the height to be 100% of the viewport height */
+  overflow: hidden; /* Hide any content that extends beyond the container's height */
+  scroll-behavior: smooth; /* Create a smooth scrolling effect when users scroll down the website */
 }
+
 
 body {
-  overflow: hidden;
-}
-
-
-.secondary {
-  background-color: navy; /* Set the background color to navy blue */
-  /* Add additional styles for the secondary part of the page here */
+  overflow: visible;
+  scroll-behavior: smooth;
+  height: 100vh; /* Set the height to be 100% of the viewport height */
 }
 
 
@@ -32,6 +30,9 @@ body {
   padding: 0 20px;
   margin: 0;
   border-radius: 0 0 40px 40px;
+  transition: all 1s ease;
+  /* Set the initial position to off the top of the screen */
+  transform: translateY(-100%);
 }
 
 .nav a {
@@ -56,6 +57,42 @@ body {
 }
 
 
+.title {
+  display: block;
+  position: absolute;
+  font-size: 72px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  z-index: 9999;
+  left: 50%; /* Position the element 50% from the left edge of the containing block */
+  top: 45%; /* Position the element 50% from the top edge of the containing block */
+  transform: translate(-50%, -50%); /* Adjust the position of the element by -50% in both the x and y axis */
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  transition: opacity 1s ease-in;
+  opacity: 0;
+}
+
+.content {
+  display: none;
+}
+
+.content.fade-in {
+  display: block;
+}
+
 .welcome-container {
   position: absolute;
   top: 30%;
@@ -70,38 +107,66 @@ body {
   color: #808080;
   text-align: right;
   /* Add additional styles for the text here */
+  animation: fade-in-slide-right 1s linear;
+  animation-delay: 1s;
+  opacity: 0;
+}
+
+@keyframes fade-in-slide-right {
+  from {
+    opacity: 0; /* Set the initial opacity to 0 */
+    transform: translateX(-80%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 #art {
   display: block;
   margin: 100px 220px 0 0;
   float: right;
+  opacity: 0;
+  animation: fade-in-move 1s linear;
+  animation-delay: 1s;
+}
+
+@keyframes fade-in-move {
+  from {
+    opacity: 0;
+    transform: translateX(100%); /* Translate the image 100% to the right */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0); /* Translate the image back to its original position */
+  }
+}
+
+#art.fade-in {
+  left: 1100px;
+opacity: 1;
 }
 
 .request-button {
-  background-color: navy;
+  background-color: #163172;
   color: white;
   width: 150px;
   height: 30px;
   text-align: center;
-  position: absolute;
-  bottom: 220px;
-  right: 67.5%;
-  transform: translateX(30%);
+  position: relative; /* Use the position: relative property */
+  bottom: -600px; /* Set the bottom position to 220px */
+  right: -450px; /* Set the right position to 67.5% */
+  transform: translateX(30%); /* Adjust the position of the element by 30% in the x-axis */
   font-size: 12px;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
+  /* Add additional styles for the button here */
+  opacity: 0;
+  transition: opacity 1s ease;
 }
 
-.door {
-  transition: all 0.5s ease;
-  transform: rotateY(0deg);
-}
-
-.door.open {
-  transform: rotateY(90deg);
-}
 
 
 hr.separator {
@@ -114,11 +179,12 @@ hr.separator {
   top: 900px; /* Add a top margin of 100 pixels */
 }
 
-
-#square {
-  width: 100px;
-  height: 100px;
-  background-color: red;
-  transform: rotate(45deg); /* Add a rotate transformation to the square */
-  transition: all 1s ease; /* Add a transition effect to the rotation */
+.subtitle {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin: 900px 0;
+  transition: opacity 0.5s ease; /* Add the transition property */
+  opacity: 0; /* Set the initial opacity to 0 */
 }
+
