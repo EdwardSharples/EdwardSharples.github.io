@@ -96,21 +96,23 @@ body {
 .welcome-container {
   position: absolute;
   top: 30%;
-  right: 65%;
+  right: 55%;
   /* Add additional styles for the container here */
-  width: 20%;
+  width: 40%;
   height: 100%;
 }
 
 .welcome-message {
-  font-size: 36px;
+  font-size: 46px;
   color: #808080;
   text-align: right;
+  font-family: HelveticaNowDisplay, Arial, sans-serif; 
   /* Add additional styles for the text here */
   animation: fade-in-slide-right 1s linear;
   animation-delay: 1s;
   opacity: 0;
 }
+
 
 @keyframes fade-in-slide-right {
   from {
@@ -155,8 +157,8 @@ opacity: 1;
   height: 30px;
   text-align: center;
   position: relative; /* Use the position: relative property */
-  bottom: -600px; /* Set the bottom position to 220px */
-  right: -450px; /* Set the right position to 67.5% */
+  bottom: -620px; /* Set the bottom position to 220px */
+  right: -665px; /* Set the right position to 67.5% */
   transform: translateX(30%); /* Adjust the position of the element by 30% in the x-axis */
   font-size: 12px;
   padding: 10px 20px;
@@ -186,5 +188,38 @@ hr.separator {
   margin: 900px 0;
   transition: opacity 0.5s ease; /* Add the transition property */
   opacity: 0; /* Set the initial opacity to 0 */
+}
+
+.color-block-container{
+  display: block;
+}
+
+.color-block-1, .color-block-2, .color-block-3{
+  width:100%;
+  float:left;
+}
+
+.color-block-1 {
+  background-color: #ff0000; /* Red */
+  color: #ffffff; /* White */
+  font-family: HelveticaNowDisplay, Arial, sans-serif;
+  padding: 10px;
+  text-align: center;
+}
+
+.color-block-2 {
+  background-color: #00ff00; /* Green */
+  color: #ffffff; /* White */
+  font-family: HelveticaNowDisplay, Arial, sans-serif;
+  padding: 10px;
+  text-align: center;
+}
+
+.color-block-3 {
+  background-color: #0000ff; /* Blue */
+  color: #ffffff; /* White */
+  font-family: HelveticaNowDisplay, Arial, sans-serif;
+  padding: 10px;
+  text-align: center;
 }
 
